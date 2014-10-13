@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir>
+
+shopt -s dotglob
+set -e
+
+# create local variables pointing to key paths
+build_dir = $1
+cache_dir = $2
+buildpack_dir = $(cd $(dirname $0) && cd .. && pwd)
+
+echo $build_dir
+echo $cache_dir
+echo $buildpack_dir
+
+# download and compile nginx
+cd $cache_dir
+wget http://nginx.org/download/nginx-1.6.2.tar.gz
+tar xzf nginx-1.6.2.tar.gz
+cd nginx-1.6.2
+./configure
+make
+
+# copy only needed files
+cd $cache_dir
+mkdir -p nginx/logs
+mkdir -p nginx/bin
+cp nginx-1.6.2/objs/nginx nginx/bin/nginx
+cp nginx-1.6.2/conf/nginx.conf nginx/conf/nginx.conf
+
+# move applicaiton files into public directory
+cd $buildpack_dir
+mkdir -p $cache_dir/public
+mv -r . $cache_dir/public
+
+# move final files into place
+rm -fR .
+mv $cache_dir/public .
+mv $cache_dir/nginx .
+
