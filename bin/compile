@@ -39,6 +39,6 @@ mkdir -p $cache_dir/public
 mv $app_files_dir/* $cache_dir/public/
 
 # move final files into place
-cd $app_files_dir
+mv $buildpack_dir/bin/launch.sh $app_files_dir/
 mv $cache_dir/public $app_files_dir/
 mv $cache_dir/nginx $app_files_dir/
