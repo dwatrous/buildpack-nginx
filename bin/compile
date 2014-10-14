@@ -14,6 +14,7 @@ echo $cache_dir
 echo $buildpack_dir
 
 # download and compile nginx
+mkdir -p $cache_dir
 cd $cache_dir
 wget http://nginx.org/download/nginx-1.6.2.tar.gz
 tar xzf nginx-1.6.2.tar.gz
@@ -23,8 +24,8 @@ make
 
 # copy only needed files
 cd $cache_dir
-mkdir -p nginx/logs
-mkdir -p nginx/bin
+mkdir -p $cache_dir/nginx/logs
+mkdir -p $cache_dir/nginx/bin
 cp nginx-1.6.2/objs/nginx nginx/bin/nginx
 cp nginx-1.6.2/conf/nginx.conf nginx/conf/nginx.conf
 
