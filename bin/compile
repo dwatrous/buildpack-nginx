@@ -6,7 +6,7 @@ set -e
 
 # debug
 pwd
-ll
+ls -la
 
 # create local variables pointing to key paths
 build_dir=$1
