@@ -9,11 +9,11 @@ pwd
 ls -la
 
 # create local variables pointing to key paths
-build_dir=$1
+app_files_dir=$1
 cache_dir=$2
 buildpack_dir=$(cd $(dirname $0) && cd .. && pwd)
 
-echo $build_dir
+echo $app_files_dir
 echo $cache_dir
 echo $buildpack_dir
 
@@ -35,13 +35,10 @@ cp nginx-1.6.2/objs/nginx $cache_dir/nginx/bin/nginx
 cp nginx-1.6.2/conf/nginx.conf $cache_dir/nginx/conf/nginx.conf
 
 # move applicaiton files into public directory
-cd $buildpack_dir
 mkdir -p $cache_dir/public
-mv . $cache_dir/public
+mv $app_files_dir/* $cache_dir/public/
 
 # move final files into place
-cd $build_dir
-rm -fR $build_dir/*
-cp $cache_dir/public $build_dir/
-cp $cache_dir/nginx $build_dir/
-
+cd $app_files_dir
+cp $cache_dir/public $app_files_dir/
+cp $cache_dir/nginx $app_files_dir/
