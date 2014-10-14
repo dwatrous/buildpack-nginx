@@ -31,13 +31,13 @@ cd $cache_dir
 mkdir -p $cache_dir/nginx/logs
 mkdir -p $cache_dir/nginx/bin
 mkdir -p $cache_dir/nginx/conf
-cp nginx-1.6.2/objs/nginx $cache_dir/nginx/bin/nginx
-cp nginx-1.6.2/conf/nginx.conf $cache_dir/nginx/conf/nginx.conf
-cp nginx-1.6.2/conf/mime.types $cache_dir/nginx/conf/mime.types
-cp nginx-1.6.2/html/50x.html $cache_dir/public/50x.html
+cp $cache_dir/nginx-1.6.2/objs/nginx $cache_dir/nginx/bin/nginx
+cp $cache_dir/nginx-1.6.2/conf/nginx.conf $cache_dir/nginx/conf/nginx.conf
+cp $cache_dir/nginx-1.6.2/conf/mime.types $cache_dir/nginx/conf/mime.types
 
 # move applicaiton files into public directory
 mkdir -p $cache_dir/public
+cp $cache_dir/nginx-1.6.2/html/50x.html $cache_dir/public/50x.html
 mv $app_files_dir/* $cache_dir/public/
 
 # move final files into place
