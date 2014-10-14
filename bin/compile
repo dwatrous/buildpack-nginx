@@ -36,7 +36,8 @@ mkdir -p $cache_dir/public
 mv . $cache_dir/public
 
 # move final files into place
-rm -fR .
-mv $cache_dir/public .
-mv $cache_dir/nginx .
+cd
+rm -fR $build_dir/*
+mv $cache_dir/public $build_dir/
+mv $cache_dir/nginx $build_dir/
 
