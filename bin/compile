@@ -33,7 +33,7 @@ cp nginx-1.6.2/conf/nginx.conf $cache_dir/nginx/conf/nginx.conf
 # move applicaiton files into public directory
 cd $buildpack_dir
 mkdir -p $cache_dir/public
-mv -r . $cache_dir/public
+mv . $cache_dir/public
 
 # move final files into place
 rm -fR .
