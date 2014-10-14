@@ -4,6 +4,10 @@
 shopt -s dotglob
 set -e
 
+# debug
+pwd
+ll
+
 # create local variables pointing to key paths
 build_dir=$1
 cache_dir=$2
