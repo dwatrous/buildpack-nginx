@@ -3,5 +3,5 @@
 cat <<STUFF
 ---
 default_process_types:
-  web: sh launch.sh
+  web: launch.sh
 STUFF

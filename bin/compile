@@ -33,6 +33,7 @@ mkdir -p $cache_dir/nginx/bin
 mkdir -p $cache_dir/nginx/conf
 cp nginx-1.6.2/objs/nginx $cache_dir/nginx/bin/nginx
 cp nginx-1.6.2/conf/nginx.conf $cache_dir/nginx/conf/nginx.conf
+cp nginx-1.6.2/conf/mime.types $cache_dir/nginx/conf/mime.types
 
 # move applicaiton files into public directory
 mkdir -p $cache_dir/public
