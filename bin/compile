@@ -34,6 +34,7 @@ mkdir -p $cache_dir/nginx/conf
 cp nginx-1.6.2/objs/nginx $cache_dir/nginx/bin/nginx
 cp nginx-1.6.2/conf/nginx.conf $cache_dir/nginx/conf/nginx.conf
 cp nginx-1.6.2/conf/mime.types $cache_dir/nginx/conf/mime.types
+cp nginx-1.6.2/html/50x.html $cache_dir/public/50x.html
 
 # move applicaiton files into public directory
 mkdir -p $cache_dir/public
@@ -43,3 +44,7 @@ mv $app_files_dir/* $cache_dir/public/
 mv $buildpack_dir/bin/launch.sh $app_files_dir/
 mv $cache_dir/public $app_files_dir/
 mv $cache_dir/nginx $app_files_dir/
+
+# remove manifest
+if [ -f $cache_dir/public/manifest.yml ]; then rm $cache_dir/public/manifest.yml; fi
+if [ -f $cache_dir/public/stackato.yml ]; then rm $cache_dir/public/stackato.yml; fi
