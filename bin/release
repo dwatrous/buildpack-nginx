@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-cat <<STUFF
+cat <<YAML
 ---
 default_process_types:
   web: sh launch.sh
-STUFF
+YAML
