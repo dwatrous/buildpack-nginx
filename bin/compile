@@ -4,7 +4,7 @@
 shopt -s dotglob
 set -e
 
-# debug
+# buildpack debug output
 pwd
 ls -la
 
@@ -13,9 +13,11 @@ app_files_dir=$1
 cache_dir=$2
 buildpack_dir=$(cd $(dirname $0) && cd .. && pwd)
 
+# buildpack debug output
 echo $app_files_dir
 echo $cache_dir
 echo $buildpack_dir
+env
 
 # download and compile nginx
 mkdir -p $cache_dir
