@@ -27,7 +27,6 @@ tar xzf $cache_dir/nginx.tar.gz -C $cache_dir
 # move applicaiton files into public directory
 mkdir -p $cache_dir/public
 mv $app_files_dir/* $cache_dir/public/
-# nginx error template 50x.html now in app
 
 # put everything in place for droplet creation
 mv $buildpack_dir/bin/launch.sh $app_files_dir/
