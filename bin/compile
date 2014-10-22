@@ -16,14 +16,13 @@ buildpack_dir=$(cd $(dirname $0) && cd .. && pwd)
 # buildpack debug output
 echo $app_files_dir
 echo $cache_dir
-echo 
-ls -la $buildpack_dir
+echo $buildpack_dir
 env
 
 # download and build nginx
 mkdir -p $cache_dir
 cp $buildpack_dir/vendor/nginx-1.6.2.tar.gz $cache_dir
-tar xzf $cache_dir/nginx-1.6.2.tar.gz
+tar xzf $cache_dir/nginx-1.6.2.tar.gz -C $cache_dir
 cd $cache_dir/nginx-1.6.2
 ./configure
 make
