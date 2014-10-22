@@ -19,7 +19,7 @@ echo $cache_dir
 echo $buildpack_dir
 env
 
-# download and build nginx
+# unpackage nginx
 mkdir -p $cache_dir
 cp $buildpack_dir/vendor/nginx.tar.gz $cache_dir
 tar xzf $cache_dir/nginx.tar.gz -C $cache_dir
