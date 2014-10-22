@@ -21,10 +21,9 @@ env
 
 # download and build nginx
 mkdir -p $cache_dir
-cd $cache_dir
-wget http://nginx.org/download/nginx-1.6.2.tar.gz
-tar xzf nginx-1.6.2.tar.gz
-cd nginx-1.6.2
+cp $buildpack_dir/vendor/nginx-1.6.2.tar.gz $cache_dir
+tar xzf $cache_dir/nginx-1.6.2.tar.gz
+cd $cache_dir/nginx-1.6.2
 ./configure
 make
 
