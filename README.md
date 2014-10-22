@@ -12,7 +12,7 @@ Include the URL to this repository under the buildpack key in the manifest for y
 ---
 applications:
 - name: static-app
-  buildpack: https://github.com/dwatrous/buildpack-nginx.git
+  buildpack: https://github.com/dwatrous/buildpack-nginx.git#offline
 ```
 
 ## Complete explanation available
