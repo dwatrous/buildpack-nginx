@@ -17,4 +17,4 @@ applications:
 
 ## Complete explanation available
 
-http://software.danielwatrous.com/nginx-buildpack-realtime/
+http://software.danielwatrous.com/nginx-buildpack-pre-compiled/
