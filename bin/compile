@@ -21,25 +21,13 @@ env
 
 # download and build nginx
 mkdir -p $cache_dir
-cp $buildpack_dir/vendor/nginx-1.6.2.tar.gz $cache_dir
-tar xzf $cache_dir/nginx-1.6.2.tar.gz -C $cache_dir
-cd $cache_dir/nginx-1.6.2
-./configure
-make
-
-# create hierarchy with only needed files
-mkdir -p $cache_dir/nginx/bin
-mkdir -p $cache_dir/nginx/conf
-mkdir -p $cache_dir/nginx/logs
-cp $cache_dir/nginx-1.6.2/objs/nginx $cache_dir/nginx/bin/nginx
-cp $cache_dir/nginx-1.6.2/conf/nginx.conf $cache_dir/nginx/conf/nginx.conf
-cp $cache_dir/nginx-1.6.2/conf/mime.types $cache_dir/nginx/conf/mime.types
+cp $buildpack_dir/vendor/nginx.tar.gz $cache_dir
+tar xzf $cache_dir/nginx.tar.gz -C $cache_dir
 
 # move applicaiton files into public directory
 mkdir -p $cache_dir/public
 mv $app_files_dir/* $cache_dir/public/
-# copy nginx error template
-cp $cache_dir/nginx-1.6.2/html/50x.html $cache_dir/public/50x.html
+# nginx error template 50x.html now in app
 
 # put everything in place for droplet creation
 mv $buildpack_dir/bin/launch.sh $app_files_dir/
