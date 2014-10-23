@@ -29,7 +29,7 @@ mkdir -p $cache_dir/public
 mv $app_files_dir/* $cache_dir/public/
 
 # put everything in place for droplet creation
-mv $buildpack_dir/bin/launch.sh $app_files_dir/
+cp $buildpack_dir/bin/launch.sh $app_files_dir/
 mv $cache_dir/public $app_files_dir/
 mv $cache_dir/nginx $app_files_dir/
 
